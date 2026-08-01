@@ -876,6 +876,7 @@
             color: #1e90ff
         }
 
+
         @media only screen and (max-width:1024px) {
             header .top-bar {
                 left: 60px
@@ -998,6 +999,18 @@
             font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: .25rem
+        }
+
+        .intro-content .intro-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .intro-content .intro-buttons .button {
+            margin-top: 0;
         }
 
         .intro-content .button:hover,
@@ -2863,7 +2876,13 @@
                         <div class="col-twelve">
                             <h5>Hello,</h5>
                             <h1>I'm Vimal Srivastava</h1>
-                            <p class="intro-position"><span>Back End Developer</span><span>Cloud & AI Enthusiastic</span></p><a href="#about" title class="button stroke smoothscroll">More About Me</a><a href="#contact" title class="button stroke smoothscroll">Contact Me</a></div>
+                            <p class="intro-position"><span>Back End Developer</span><span>Cloud & AI Enthusiastic</span></p>
+                            <div class="intro-buttons">
+                                <a href="#about" title class="button stroke smoothscroll">More About Me</a>
+                                <a href="#contact" title class="button stroke smoothscroll">Contact Me</a>
+                                <a href="assets/Vimal-Srivastava-Resume.pdf" download="Vimal_Srivastava_Resume.pdf" title="Download Resume" class="button stroke">Download Resume</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <ul class="intro-social">
