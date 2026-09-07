@@ -2804,6 +2804,175 @@
             }
         }
     </style>
+    <style>
+        @media only screen and (max-width: 768px) {
+            html,
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .row {
+                width: 100%;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            section {
+                overflow: hidden;
+            }
+
+            #intro {
+                min-height: 680px;
+                background-attachment: scroll;
+            }
+
+            .intro-content {
+                padding: 90px 0 120px;
+                transform: none;
+            }
+
+            .intro-content h1 {
+                font-size: clamp(3.2rem, 11vw, 5.2rem);
+                line-height: 1.15;
+                overflow-wrap: anywhere;
+            }
+
+            .intro-content .intro-position {
+                line-height: 1.8;
+            }
+
+            .intro-content .intro-position span {
+                display: block;
+            }
+
+            .intro-content .intro-buttons {
+                align-items: stretch;
+                flex-direction: column;
+                gap: 1rem;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 32rem;
+            }
+
+            .intro-content .intro-buttons .button {
+                width: 100%;
+                margin: 0;
+            }
+
+            .intro-social {
+                bottom: 3rem;
+            }
+
+            .intro-info,
+            .about-content,
+            .portfolio-content,
+            .services-content,
+            .contact-form,
+            .contact-info {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .intro-info .lead {
+                padding-left: 0;
+            }
+
+            .about-content .col-six,
+            .resume-timeline,
+            .contact-info {
+                margin-bottom: 3rem;
+            }
+
+            #portfolio .bgrid,
+            .services-list .bgrid {
+                float: none;
+                width: 100%;
+            }
+
+            #portfolio .folio-item img {
+                width: 100%;
+            }
+
+            #stats .stat {
+                min-height: 13rem;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            #contact input[type="text"],
+            #contact input[type="email"],
+            #contact textarea {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .row {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            header .row {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .top-bar {
+                min-width: 0;
+            }
+
+            .logo a {
+                font-size: 1.4rem !important;
+            }
+
+            #main-nav-wrap {
+                width: min(280px, 88vw) !important;
+            }
+
+            #about,
+            #resume,
+            #portfolio,
+            #services,
+            #contact {
+                padding-top: 7rem;
+                padding-bottom: 7rem;
+            }
+
+            .section-intro h1 {
+                font-size: 2.6rem !important;
+            }
+
+            .section-intro .lead,
+            .intro-info .lead {
+                font-size: 1.5rem !important;
+                line-height: 1.7;
+            }
+
+            .intro-content h5 {
+                font-size: 1.4rem;
+            }
+
+            .intro-content h1 {
+                font-size: clamp(3rem, 12vw, 4.6rem);
+            }
+
+            .intro-social li {
+                margin: 0 8px;
+            }
+
+            #resume .timeline-header,
+            #resume .timeline-content {
+                padding-left: 5rem;
+                padding-right: 0;
+            }
+
+            .button-section .button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -3352,6 +3521,29 @@
                 const message = encodeURIComponent(messageInput.value.trim());
                 const body = encodeURIComponent(`Name: ${nameInput.value.trim()}\nEmail: ${emailInput.value.trim()}\n\n${messageInput.value.trim()}`);
                 window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navigation = document.getElementById('main-nav-wrap');
+
+            if (!menuToggle || !navigation) {
+                return;
+            }
+
+            menuToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                navigation.classList.toggle('open');
+                menuToggle.classList.toggle('is-clicked');
+            });
+
+            navigation.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    navigation.classList.remove('open');
+                    menuToggle.classList.remove('is-clicked');
+                });
             });
         });
     </script>
